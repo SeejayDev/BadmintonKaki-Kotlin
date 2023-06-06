@@ -1,0 +1,385 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingHorizontal="@dimen/padding_side">
+
+        <LinearLayout
+            android:id="@id/activity_title"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="Session\nDetails"
+                android:includeFontPadding="false"
+                android:lineSpacingMultiplier="0.9"
+                android:fontFamily="@font/poppins_semibold"
+                android:textColor="@color/blue_primary"
+                android:textSize="36sp"/>
+
+            <LinearLayout
+                android:layout_gravity="bottom"
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:fontFamily="@font/poppins_semibold"
+                    android:textColor="@color/blue_primary"
+                    android:textSize="22sp"
+                    android:text="1 May 2022"
+                    android:includeFontPadding="false"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:fontFamily="@font/poppins_medium"
+                    android:textColor="@color/blue_primary"
+                    android:textSize="18sp"
+                    android:textAlignment="textEnd"
+                    android:text="08:00 - 10:00"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/location"
+            app:layout_constraintTop_toBottomOf="@id/activity_title"
+            android:layout_marginTop="@dimen/section_spacing_top"
+            android:fontFamily="@font/poppins_semibold"
+            android:textColor="@color/blue_primary"
+            android:textSize="18sp"
+            android:text="Alam Damai Community Court"
+            android:includeFontPadding="false"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <ScrollView
+            android:id="@+id/session_details"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@+id/bottom_section"
+            app:layout_constraintTop_toBottomOf="@id/location"
+            tools:layout_editor_absoluteX="16dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/section_spacing_top"
+                    android:fontFamily="@font/poppins_semibold"
+                    android:includeFontPadding="false"
+                    android:text="Description"
+                    android:textColor="@color/black"
+                    android:textSize="17sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="@font/poppins"
+                    android:includeFontPadding="false"
+                    android:text="Badminton game on Sunday, price is RM18 per court and RM25 per shuttlecock"
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:layout_marginTop="16dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins_semibold"
+                    android:includeFontPadding="false"
+                    android:text="Enter Costs"
+                    android:textColor="@color/black"
+                    android:textSize="17sp" />
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:backgroundTint="@color/blue_primary"
+                    app:cardCornerRadius="8dp"
+                    app:cardUseCompatPadding="true">
+
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:paddingHorizontal="12dp"
+                        android:paddingVertical="8dp"
+                        android:gravity="center_vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <LinearLayout
+                            android:orientation="vertical"
+                            android:layout_weight="1"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                android:fontFamily="@font/poppins_medium"
+                                android:textColor="@color/white"
+                                android:text="Shuttlecocks"
+                                android:textSize="17sp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"/>
+
+                            <TextView
+                                android:fontFamily="@font/poppins_semibold"
+                                android:textColor="@color/white"
+                                android:text="8 pcs (RM24)"
+                                android:textSize="14sp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"/>
+                        </LinearLayout>
+
+                        <com.google.android.material.card.MaterialCardView
+                            app:cardCornerRadius="6dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+
+                            <Button
+                                android:background="@color/white"
+                                android:minWidth="0dp"
+                                android:minHeight="0dp"
+                                android:paddingTop="2dp"
+                                android:paddingBottom="1dp"
+                                android:paddingHorizontal="12dp"
+                                android:text="Remove"
+                                android:textColor="@color/blue_primary"
+                                android:textAllCaps="false"
+                                android:fontFamily="@font/poppins_bold"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"/>
+                        </com.google.android.material.card.MaterialCardView>
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:layout_marginHorizontal="4dp"
+                    android:backgroundTint="@color/white"
+                    app:cardCornerRadius="6dp"
+                    app:strokeColor="@color/blue_primary"
+                    app:strokeWidth="3dp">
+
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <LinearLayout
+                            android:padding="8dp"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <LinearLayout
+                                android:orientation="vertical"
+                                android:layout_weight="1"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content">
+
+                                <TextView
+                                    android:text="Item"
+                                    android:fontFamily="@font/poppins_medium"
+                                    android:textColor="@color/black"
+                                    android:includeFontPadding="false"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"/>
+
+                                <com.google.android.material.card.MaterialCardView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+
+                                    app:cardCornerRadius="6dp"
+                                    app:cardUseCompatPadding="true"
+                                    android:backgroundTint="@color/gray_background">
+
+                                    <EditText
+                                        android:paddingHorizontal="12dp"
+                                        android:paddingVertical="4dp"
+                                        android:hint="E.g. Shuttlecock"
+                                        android:textSize="14sp"
+                                        android:includeFontPadding="false"
+                                        android:fontFamily="@font/poppins_medium"
+                                        android:background="@color/gray_background"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"/>
+                                </com.google.android.material.card.MaterialCardView>
+                            </LinearLayout>
+
+
+                            <LinearLayout
+                                android:orientation="vertical"
+                                android:layout_weight="0.4"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content">
+
+                                <TextView
+                                    android:text="Quantity"
+                                    android:textAlignment="center"
+                                    android:fontFamily="@font/poppins_medium"
+                                    android:textColor="@color/black"
+                                    android:includeFontPadding="false"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"/>
+
+                                <com.google.android.material.card.MaterialCardView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    app:cardCornerRadius="6dp"
+                                    app:cardUseCompatPadding="true"
+                                    android:backgroundTint="@color/gray_background">
+
+                                    <EditText
+                                        android:paddingHorizontal="12dp"
+                                        android:paddingVertical="4dp"
+                                        android:textSize="14sp"
+                                        android:textAlignment="center"
+                                        android:includeFontPadding="false"
+                                        android:fontFamily="@font/poppins_medium"
+                                        android:background="@color/gray_background"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"/>
+                                </com.google.android.material.card.MaterialCardView>
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:orientation="vertical"
+                                android:layout_weight="0.4"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content">
+
+                                <TextView
+                                    android:text="Cost"
+                                    android:textAlignment="center"
+                                    android:fontFamily="@font/poppins_medium"
+                                    android:textColor="@color/black"
+                                    android:includeFontPadding="false"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"/>
+
+                                <com.google.android.material.card.MaterialCardView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    app:cardCornerRadius="6dp"
+                                    app:cardUseCompatPadding="true"
+                                    android:backgroundTint="@color/gray_background">
+
+                                    <EditText
+                                        android:paddingHorizontal="12dp"
+                                        android:paddingVertical="4dp"
+                                        android:textSize="14sp"
+                                        android:textAlignment="center"
+                                        android:includeFontPadding="false"
+                                        android:fontFamily="@font/poppins_medium"
+                                        android:background="@color/gray_background"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"/>
+                                </com.google.android.material.card.MaterialCardView>
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <com.google.android.material.card.MaterialCardView
+                            android:layout_marginLeft="8dp"
+                            android:layout_marginRight="5dp"
+                            app:cardCornerRadius="8dp"
+                            android:layout_gravity="right"
+                            android:layout_width="wrap_content"
+                            app:cardUseCompatPadding="true"
+                            android:layout_height="wrap_content">
+
+                            <Button
+                                android:text="Add"
+                                android:textAllCaps="false"
+                                android:minHeight="0dp"
+                                android:minWidth="0dp"
+                                android:paddingHorizontal="16dp"
+                                android:paddingVertical="4dp"
+                                android:fontFamily="@font/poppins_bold"
+                                android:background="@color/blue_primary"
+                                android:textColor="@color/white"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"/>
+                        </com.google.android.material.card.MaterialCardView>
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+            </LinearLayout>
+        </ScrollView>
+
+        <LinearLayout
+            android:id="@+id/bottom_section"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:text="Total:"
+                    android:fontFamily="@font/poppins_semibold"
+                    android:textSize="18sp"
+                    android:textColor="@color/black"
+                    android:textAlignment="textEnd"
+                    android:paddingRight="48dp"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:text="RM 256.00"
+                    android:fontFamily="@font/poppins_semibold"
+                    android:textSize="18sp"
+                    android:textColor="@color/black"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+            </LinearLayout>
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="16dp"
+                app:cardCornerRadius="8dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <Button
+                    android:text="Confirm Fee"
+                    android:textAllCaps="false"
+                    android:paddingVertical="12dp"
+                    android:textSize="18sp"
+                    android:minHeight="0dp"
+                    android:fontFamily="@font/poppins_bold"
+                    android:background="@color/blue_primary"
+                    android:textColor="@color/white"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+            </com.google.android.material.card.MaterialCardView>
+
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/header"
+            app:layout_constraintTop_toBottomOf="@id/img_banner"
+            app:cardCornerRadius="18dp"
+            android:translationY="-14dp"
+            android:elevation="0dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:paddingHorizontal="16dp"
+                android:paddingTop="30dp"
+                android:paddingBottom="16dp"
+                android:background="@color/blue_primary"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/lbl_group_name"
+                    android:fontFamily="@font/poppins_semibold"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"
+                    tools:text="Alam Damai Badminton Group"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+
+                <LinearLayout
+                    android:gravity="bottom"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content">
+
+                        <LinearLayout
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+
+                            <ImageView
+                                android:src="@drawable/ic_location_white"
+                                android:layout_width="24dp"
+                                android:layout_height="wrap_content"/>
+
+                            <TextView
+                                android:id="@+id/lbl_group_location"
+                                tools:text="Alam Damai Community Court"
+                                android:layout_marginLeft="5dp"
+                                android:textColor="@color/white"
+                                android:fontFamily="@font/poppins"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"/>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+
+                            <ImageView
+                                android:src="@drawable/ic_account_circle_white"
+                                android:layout_width="24dp"
+                                android:layout_height="wrap_content"/>
+
+                            <TextView
+                                android:id="@+id/lbl_group_leader"
+                                tools:text="Kenneth Liew Yi Ming"
+                                android:layout_marginLeft="5dp"
+                                android:textColor="@color/white"
+                                android:fontFamily="@font/poppins"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"/>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:orientation="horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <LinearLayout
+                                android:orientation="horizontal"
+                                android:gravity="center_vertical"
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:layout_height="wrap_content">
+
+                                <ImageView
+                                    android:src="@drawable/ic_skill_white"
+                                    android:layout_width="22dp"
+                                    android:layout_height="wrap_content"/>
+
+                                <TextView
+                                    android:id="@+id/lbl_group_skill"
+                                    tools:text="Average"
+                                    android:includeFontPadding="false"
+                                    android:layout_marginLeft="7dp"
+                                    android:textColor="@color/white"
+                                    android:fontFamily="@font/poppins"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"/>
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:orientation="horizontal"
+                                android:gravity="center_vertical"
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:layout_height="wrap_content">
+
+                                <ImageView
+                                    android:src="@drawable/ic_person_white"
+                                    android:layout_width="24dp"
+                                    android:layout_height="wrap_content"/>
+
+                                <TextView
+                                    android:id="@+id/lbl_group_size"
+                                    tools:text="12"
+                                    android:includeFontPadding="false"
+                                    android:layout_marginLeft="5dp"
+                                    android:textColor="@color/white"
+                                    android:fontFamily="@font/poppins"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"/>
+                            </LinearLayout>
+
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:cardCornerRadius="5dp"
+                        android:layout_gravity="bottom">
+
+                        <Button
+                            android:id="@+id/btn_join"
+                            android:visibility="gone"
+                            android:background="@color/white"
+                            android:textColor="@color/blue_primary"
+                            android:text="Join"
+                            android:textSize="16sp"
+                            android:paddingHorizontal="18dp"
+                            android:paddingTop="5dp"
+                            android:paddingBottom="3dp"
+                            android:minHeight="0dp"
+                            android:minWidth="0dp"
+                            android:textAllCaps="false"
+                            android:fontFamily="@font/poppins_bold"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+
+                        <Button
+                            android:id="@+id/btn_leave"
+                            android:visibility="visible"
+                            android:background="@color/red_primary"
+                            android:textColor="@color/white"
+                            android:text="Leave"
+                            android:textSize="16sp"
+                            android:paddingHorizontal="18dp"
+                            android:paddingTop="5dp"
+                            android:paddingBottom="3dp"
+                            android:minHeight="0dp"
+                            android:minWidth="0dp"
+                            android:textAllCaps="false"
+                            android:fontFamily="@font/poppins_bold"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+
+                        <Button
+                            android:id="@+id/btn_manage"
+                            android:visibility="gone"
+                            android:background="@color/white"
+                            android:textColor="@color/blue_primary"
+                            android:text="Manage"
+                            android:textSize="16sp"
+                            android:paddingHorizontal="18dp"
+                            android:paddingTop="5dp"
+                            android:paddingBottom="3dp"
+                            android:minHeight="0dp"
+                            android:minWidth="0dp"
+                            android:textAllCaps="false"
+                            android:fontFamily="@font/poppins_bold"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+                    </com.google.android.material.card.MaterialCardView>
+                </LinearLayout>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:cardCornerRadius="5dp"
+                    android:layout_gravity="bottom"/>
+
+
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <ImageView
+            android:id="@+id/img_banner"
+            android:src="@drawable/badmintoncourt1"
+            app:layout_constraintDimensionRatio="H,1:0.6"
+            android:scaleType="centerCrop"
+            android:elevation="2dp"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"/>
+
+        <ImageButton
+            android:id="@+id/btn_back"
+            android:elevation="5dp"
+            android:layout_margin="16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:background="@drawable/ic_back_white"
+            android:layout_width="42dp"
+            android:layout_height="42dp"/>
+
+        <LinearLayout
+            android:orientation="vertical"
+            app:layout_constraintTop_toBottomOf="@id/header"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginTop="16dp"
+            android:paddingHorizontal="16dp"
+            android:layout_width="match_parent"
+            android:layout_height="0dp">
+
+            <TextView
+                android:text="Upcoming Sessions"
+                android:fontFamily="@font/poppins_semibold"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+                android:id="@+id/refresh_sessions"
+                android:paddingTop="8dp"
+                android:layout_width="match_parent"
+                android:layout_weight="1"
+                android:layout_height="0dp">
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/new_session"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="4dp"
+                        android:layout_marginBottom="8dp"
+                        app:cardCornerRadius="8dp"
+                        app:strokeWidth="3dp"
+                        app:strokeColor="@color/blue_primary">
+
+                        <Button
+                            android:id="@+id/btn_new_session"
+                            android:fontFamily="@font/poppins_semibold"
+                            android:textAllCaps="false"
+                            android:textColor="@color/blue_primary"
+                            android:textSize="16sp"
+                            android:background="@color/white"
+                            android:text="New Session"
+                            android:paddingHorizontal="16dp"
+                            android:paddingVertical="10dp"
+                            android:textAlignment="textStart"
+                            android:includeFontPadding="false"
+                            android:drawableEnd="@drawable/ic_plus_blue"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"/>
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/recyclerview_sessions"
+                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+                </LinearLayout>
+            </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+
+        </LinearLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

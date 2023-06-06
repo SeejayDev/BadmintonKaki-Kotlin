@@ -1,0 +1,31 @@
+<resources>
+    <string name="app_name">BaKa</string>
+    <string name="username_taken">Username taken</string>
+
+    <string-array name="states">
+        <item>State:</item>
+        <item>Johor</item>
+        <item>Kedah</item>
+        <item>Kelantan</item>
+        <item>Malacca</item>
+        <item>Negeri Sembilan</item>
+        <item>Pahang</item>
+        <item>Penang</item>
+        <item>Perak</item>
+        <item>Perlis</item>
+        <item>Sabah</item>
+        <item>Sarawak</item>
+        <item>Selangor</item>
+        <item>Terengganu</item>
+    </string-array>
+
+    <string-array name="skills">
+        <item>Skill:</item>
+        <item>Beginner</item>
+        <item>Average</item>
+        <item>Pro</item>
+    </string-array>
+    <string name="appwidget_text">EXAMPLE</string>
+    <string name="add_widget">Add widget</string>
+    <string name="app_widget_description">This is an app widget description</string>
+</resources>

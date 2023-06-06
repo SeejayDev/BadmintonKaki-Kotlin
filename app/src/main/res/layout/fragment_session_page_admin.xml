@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingHorizontal="@dimen/padding_side">
+
+        <LinearLayout
+            android:id="@id/activity_title"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="Session\nDetails"
+                android:includeFontPadding="false"
+                android:lineSpacingMultiplier="0.9"
+                android:fontFamily="@font/poppins_semibold"
+                android:textColor="@color/blue_primary"
+                android:textSize="36sp"/>
+
+            <LinearLayout
+                android:layout_gravity="bottom"
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/lbl_session_date"
+                    android:fontFamily="@font/poppins_semibold"
+                    android:textColor="@color/blue_primary"
+                    android:textSize="22sp"
+                    tools:text="1 May 2022"
+                    android:includeFontPadding="false"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:id="@+id/lbl_session_time"
+                    android:fontFamily="@font/poppins_medium"
+                    android:textColor="@color/blue_primary"
+                    android:textSize="18sp"
+                    android:textAlignment="textEnd"
+                    tools:text="08:00 - 10:00"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/lbl_session_location"
+            app:layout_constraintTop_toBottomOf="@id/activity_title"
+            android:layout_marginTop="@dimen/section_spacing_top"
+            android:fontFamily="@font/poppins_semibold"
+            android:textColor="@color/blue_primary"
+            android:textSize="18sp"
+            tools:text="Alam Damai Community Court"
+            android:includeFontPadding="false"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toTopOf="@+id/action_buttons"
+            app:layout_constraintTop_toBottomOf="@id/lbl_session_location">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/section_spacing_top"
+                android:fontFamily="@font/poppins_semibold"
+                android:includeFontPadding="false"
+                android:text="Description:"
+                android:textColor="@color/black"
+                android:textSize="17sp" />
+
+            <TextView
+                android:id="@+id/lbl_session_description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/poppins"
+                android:includeFontPadding="false"
+                tools:text="Badminton game on Sunday, price is RM18 per court and RM25 per shuttlecock"
+                android:textColor="@color/black"
+                android:textSize="16sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/section_spacing_top"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/poppins_semibold"
+                    android:includeFontPadding="false"
+                    android:text="Attending Members:"
+                    android:textColor="@color/black"
+                    android:textSize="17sp" />
+
+                <TextView
+                    android:id="@+id/lbl_session_limit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins_semibold"
+                    android:includeFontPadding="false"
+                    tools:text="3/10"
+                    android:textColor="@color/black"
+                    android:textSize="17sp" />
+            </LinearLayout>
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:layout_marginHorizontal="2dp"
+                android:backgroundTint="@color/white"
+                app:cardCornerRadius="6dp"
+                app:strokeColor="@color/gray_background"
+                app:strokeWidth="4dp">
+
+                <LinearLayout
+                    android:paddingHorizontal="6dp"
+                    android:paddingVertical="6dp"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        app:cardCornerRadius="8dp"
+                        android:backgroundTint="@color/gray_background">
+
+                        <Spinner
+                            android:id="@+id/spinner_members"
+                            android:layout_marginVertical="8dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            />
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_marginLeft="8dp"
+                        app:cardCornerRadius="8dp"
+                        android:layout_width="wrap_content"
+                        app:cardUseCompatPadding="true"
+                        android:layout_height="wrap_content">
+
+                        <Button
+                            android:id="@+id/btn_add_member"
+                            android:text="Add"
+                            android:textAllCaps="false"
+                            android:minHeight="0dp"
+                            android:minWidth="0dp"
+                            android:paddingHorizontal="16dp"
+                            android:paddingVertical="8dp"
+                            android:fontFamily="@font/poppins_bold"
+                            android:background="@color/gray_secondary"
+                            android:textColor="@color/black"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"/>
+                    </com.google.android.material.card.MaterialCardView>
+
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+            
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerview_members"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                android:layout_marginBottom="12dp"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/action_buttons"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/join_button"
+                android:layout_marginBottom="16dp"
+                app:cardCornerRadius="8dp"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                app:cardUseCompatPadding="true"
+                android:layout_height="wrap_content">
+
+                <Button
+                    android:id="@+id/btn_join_session"
+                    android:visibility="visible"
+                    android:text="Join Session"
+                    android:textAllCaps="false"
+                    android:paddingVertical="12dp"
+                    android:textSize="18sp"
+                    android:minHeight="0dp"
+                    android:fontFamily="@font/poppins_bold"
+                    android:background="@drawable/style_button_background"
+                    android:textColor="@color/white"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+                <Button
+                    android:id="@+id/btn_leave_session"
+                    android:text="Leave Session"
+                    android:visibility="gone"
+                    android:textAllCaps="false"
+                    android:paddingVertical="12dp"
+                    android:textSize="18sp"
+                    android:minHeight="0dp"
+                    android:fontFamily="@font/poppins_bold"
+                    android:background="@color/red_primary"
+                    android:textColor="@color/white"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/calcfee_button"
+                android:layout_marginBottom="16dp"
+                app:cardCornerRadius="8dp"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                app:cardUseCompatPadding="true"
+                android:layout_height="wrap_content">
+
+                <Button
+                    android:id="@+id/btn_fee"
+                    android:text="Collect Fee"
+                    android:textAllCaps="false"
+                    android:paddingVertical="12dp"
+                    android:textSize="18sp"
+                    android:minHeight="0dp"
+                    android:fontFamily="@font/poppins_bold"
+                    android:background="@color/blue_primary"
+                    android:textColor="@color/white"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+            </com.google.android.material.card.MaterialCardView>
+
+        </LinearLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,140 @@
+package com.seejay.badmintonkaki.ui.fragments
+
+import android.app.Activity
+import android.content.Intent
+import android.net.Uri
+import android.os.Bundle
+import android.provider.MediaStore
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import android.widget.ArrayAdapter
+import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.Fragment
+import androidx.navigation.NavController
+import androidx.navigation.fragment.findNavController
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
+import com.seejay.badmintonkaki.R
+import com.seejay.badmintonkaki.databinding.FragmentGroupCreateBinding
+import com.seejay.badmintonkaki.firebase.FirebaseClass
+import com.seejay.badmintonkaki.models.Group
+import com.seejay.badmintonkaki.utilities.ThisDevice
+import java.util.*
+
+class GroupCreateFragment: Fragment() {
+    private lateinit var binding: FragmentGroupCreateBinding
+    private lateinit var navController: NavController
+    private lateinit var auth: FirebaseAuth
+    val db = Firebase.firestore
+
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        binding = DataBindingUtil.inflate<FragmentGroupCreateBinding>(inflater,
+            R.layout.fragment_group_create, container, false)
+
+        // Firebase stuff
+        navController = findNavController()
+        auth = Firebase.auth
+
+        // load values into spinners
+        binding.spinnerState.adapter = ArrayAdapter.createFromResource(
+            this.requireContext(),
+            R.array.states,
+            R.layout.spinner_item)
+            .also {it.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)}
+
+        binding.spinnerSkill.adapter = ArrayAdapter.createFromResource(
+            this.requireContext(),
+            R.array.skills,
+            R.layout.spinner_item)
+            .also {it.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)}
+
+        // listeners
+        setListeners()
+
+        return binding.root
+    }
+
+    fun setListeners() {
+        binding.btnSelectImage.setOnClickListener {
+            val gallery = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI)
+            gallery.setType("image/*")
+            startActivityForResult(gallery, 1)
+        }
+        
+        binding.btnCreateGroup.setOnClickListener {
+            if (binding.txtGroupName.text.length < 1) {
+                ThisDevice(this.requireContext()).showToast("Group name cannot be empty")
+            } else {
+                if (binding.txtCourtLocation.text.length < 1) {
+                    ThisDevice(this.requireContext()).showToast("Court location cannot be empty")
+                } else {
+                    if (binding.spinnerState.selectedItemPosition == 0) {
+                        ThisDevice(this.requireContext()).showToast("Select the group's state")
+                    } else {
+                        if (binding.spinnerSkill.selectedItemPosition == 0) {
+                            ThisDevice(this.requireContext()).showToast("Select the group's skill level")
+                        } else {
+                            if (binding.imgCover.tag == "") {
+                                ThisDevice(this.requireContext()).showToast("Select a group image")
+                            } else {
+                                toggleButtonState()
+                                uploadGroupPic()
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    fun uploadGroupPic() {
+        // get the URI of the image
+        var file = Uri.parse(binding.imgCover.tag.toString())
+
+        // generate a random ID
+        var uniqueId = UUID.randomUUID().toString()
+
+        // run the upload
+        FirebaseClass().uploadGroupImageToStorage(this, file, uniqueId)
+    }
+
+    // function called once the image has been uploaded
+    fun createGroup(imageUrl: String) {
+        val newGroup = Group(
+            "",
+            binding.txtGroupName.text.toString(),
+            auth.currentUser!!.uid,
+            imageUrl,
+            binding.txtCourtLocation.text.toString(),
+            binding.spinnerState.selectedItem.toString(),
+            binding.spinnerSkill.selectedItem.toString(),
+            listOf(auth.currentUser!!.uid)
+        )
+
+        // create the group and store the generated ID
+        db.collection("groups").add(newGroup).addOnSuccessListener { docRef ->
+            docRef.update("groupId", docRef.id)
+
+            toggleButtonState()
+            ThisDevice(this.requireContext()).showToast("Group created")
+            navController.navigate(R.id.action_groupCreateFragment_to_myGroupsFragment)
+        }
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        // listen for if the user selects an image
+        if (resultCode == Activity.RESULT_OK && requestCode == 1) {
+            binding.imgCover.visibility = View.VISIBLE
+            binding.imgCover.setImageURI(data?.data)
+            binding.imgCover.setTag(data?.data.toString())
+        }
+    }
+
+    fun toggleButtonState() {
+        binding.btnCreateGroup.isEnabled = !binding.btnCreateGroup.isEnabled
+    }
+}
